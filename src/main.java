@@ -11,6 +11,7 @@ public class main {
         Node nodeTutucu;
 
         //Process p = new Process(1,0,0,5,"\u001B[35m");
+        //deneme yorum satiri
 
 
         int oncelik;
