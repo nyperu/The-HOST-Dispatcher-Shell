@@ -1,0 +1,63 @@
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Dosya {
+    Process p;
+    Node node;
+
+    DoublyLinkedList list = new DoublyLinkedList();
+
+
+    public DoublyLinkedList Oku(){
+        String color="\u001B[3";
+        int number = 0;
+        try {
+
+            java.io.File myObj = new java.io.File("giris.txt");
+            Scanner myReader = new Scanner(myObj);
+            int id=0;
+            while (myReader.hasNextLine()) {
+
+                String data = myReader.nextLine();
+                String[] saniye = data.split(", ",0);
+               /* System.out.print("Id : "+id);
+                System.out.print("  GelisZamanı ; "+ saniye[0]);
+                System.out.print("  Öncelik ; "+ saniye[1]);
+                System.out.println("  Süresi ; "+ saniye[2]);
+                */RenkCode(number);
+                p = new Process(id,Integer.parseInt(saniye[0]),Integer.parseInt(saniye[1]),Integer.parseInt(saniye[2]),"\u001B[35m");
+                node=new Node(p);
+                list.addLast(node);
+                id++;
+
+            }
+
+            myReader.close();
+            return list;
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+   /* public void listegetir(LinkedList p0){
+
+        for(int i = 0; !p0.IsEmpty();i++){
+            System.out.println( i +" sn " + p0.peek());
+            p0.pop();
+        }
+    }*/
+    public String NewColor(){
+        return "";
+    }
+    public int RenkCode(int number){
+        if(number == 10){
+            number =0;
+        }
+        else{
+            number++;
+        }
+        return number;
+    }
+}
