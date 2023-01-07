@@ -8,12 +8,11 @@ public class Dosya {
     DoublyLinkedList list = new DoublyLinkedList();
 
     Random rand = new Random();
-    public DoublyLinkedList Oku(){
-        String color="\u001B[3";
+    public DoublyLinkedList Oku(String txt){
         int number = 0;
         try {
 
-            java.io.File myObj = new java.io.File("giris.txt");
+            java.io.File myObj = new java.io.File(txt);
             Scanner myReader = new Scanner(myObj);
             int id=0;
             while (myReader.hasNextLine()) {
@@ -41,13 +40,13 @@ public class Dosya {
         return null;
 
     }
-   /* public void listegetir(LinkedList p0){
+    /* public void listegetir(LinkedList p0){
 
-        for(int i = 0; !p0.IsEmpty();i++){
-            System.out.println( i +" sn " + p0.peek());
-            p0.pop();
-        }
-    }*/
+         for(int i = 0; !p0.IsEmpty();i++){
+             System.out.println( i +" sn " + p0.peek());
+             p0.pop();
+         }
+     }*/
     public String NewColor(int number){
         return "\u001B[1;3" +RenkCode(number) +"m";
     }
@@ -59,9 +58,8 @@ public class Dosya {
 
     public String NewBColor(int number){
         int rd =rand.nextInt(8);
-        int nnumber = RenkCode(number);
-        if(rd == nnumber){
-            while(rd == nnumber){
+        if(rd == number){
+            while(rd == number){
                 rd =rand.nextInt(8);
             }
         }
