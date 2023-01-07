@@ -75,27 +75,45 @@ class DoublyLinkedList {
             // Düğümün değerini 1 arttırın
             currentP0.proses.olumAdimi += 1;
 
-            // Geçici düğümü sonraki düğüme götürün
-            currentP0 = currentP0.next;
+            if(currentP3.proses.olumAdimi==21){
+                kalanSure=currentP0.proses.calisacagiSure - currentP0.proses.calistigiSure;
+                currentP0.proses.zamanAsimi(gercekZaman,kalanSure);
+                currentP0.delete();
+            }
+            else{
+                currentP0 = currentP0.next;
+            }
         }
         while (currentP1 != null) {
             // Düğümün değerini 1 arttırın
             currentP1.proses.olumAdimi += 1;
 
-            // Geçici düğümü sonraki düğüme götürün
-            currentP1 = currentP1.next;
+            if(currentP1.proses.olumAdimi==21){
+                kalanSure=currentP1.proses.calisacagiSure - currentP1.proses.calistigiSure;
+                currentP1.proses.zamanAsimi(gercekZaman,kalanSure);
+                currentP1.delete();
+            }
+            else{
+                currentP1 = currentP1.next;
+            }
         }
         while (currentP2 != null) {
             // Düğümün değerini 1 arttırın
             currentP2.proses.olumAdimi += 1;
 
-            // Geçici düğümü sonraki düğüme götürün
-            currentP2 = currentP2.next;
+            if(currentP2.proses.olumAdimi==21){
+                kalanSure=currentP2.proses.calisacagiSure - currentP2.proses.calistigiSure;
+                currentP2.proses.zamanAsimi(gercekZaman,kalanSure);
+                currentP2.delete();
+            }
+            else{
+                currentP2 = currentP2.next;
+            }
         }
         while (currentP3 != null) {
             // Düğümün değerini 1 arttırın
             currentP3.proses.olumAdimi += 1;
-            if(currentP3.proses.olumAdimi==20){
+            if(currentP3.proses.olumAdimi==21){
                 kalanSure=currentP3.proses.calisacagiSure - currentP3.proses.calistigiSure;
                 currentP3.proses.zamanAsimi(gercekZaman,kalanSure);
                 currentP3.delete();
