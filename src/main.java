@@ -15,7 +15,7 @@ public class main {
 
 
         int oncelik;
-        tumListe=dosya.Oku();
+        tumListe=dosya.Oku(args[0]);
         //onceliklerine göre listelere atılıyor...
         for (int i=0;i<tumListe.size;i++){
             oncelik = tumListe.head.proses.oncelik;
@@ -56,12 +56,10 @@ public class main {
                         p0.head.proses.yeniBasladi(gercekZaman, yenimiBasladi);
                         p0.head.proses.calistigiSure++;
                         gercekZaman++;
-                        p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                     } else if (yenimiBasladi < calisacagiSure && yenimiBasladi > 0) {
                         p0.head.proses.yurutuluyor(gercekZaman, yenimiBasladi);
                         p0.head.proses.calistigiSure++;
                         gercekZaman++;
-                        p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                     }
                     calisacagiSure = p0.head.proses.calisacagiSure;
                     calistigiSure = p0.head.proses.calistigiSure;
@@ -70,6 +68,7 @@ public class main {
                         p0.head.proses.bitti(gercekZaman, yenimiBasladi);
                         p0.sonraki();
                     }
+                    p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                     continue;
                 }
                 else
@@ -85,7 +84,6 @@ public class main {
                         p1.head.proses.yeniBasladi(gercekZaman, yenimiBasladi);
                         p1.head.proses.calistigiSure++;
                         gercekZaman++;
-                        p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                         calisacagiSure = p1.head.proses.calisacagiSure;
                         calistigiSure = p1.head.proses.calistigiSure;
                         yenimiBasladi = calisacagiSure - calistigiSure;
@@ -102,7 +100,8 @@ public class main {
                             p1.sonraki();
                         }
                     }
-                continue;
+                    p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
+                     continue;
                 }
                 else
                     gercekZamanIcerideArtmadi++;
@@ -116,7 +115,6 @@ public class main {
                         p2.head.proses.yeniBasladi(gercekZaman, yenimiBasladi);
                         p2.head.proses.calistigiSure++;
                         gercekZaman++;
-                        p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                         calisacagiSure = p2.head.proses.calisacagiSure;
                         calistigiSure = p2.head.proses.calistigiSure;
                         yenimiBasladi = calisacagiSure - calistigiSure;
@@ -137,7 +135,6 @@ public class main {
                         p2.head.proses.yurutuluyor(gercekZaman, yenimiBasladi);
                         p2.head.proses.calistigiSure++;
                         gercekZaman++;
-                        p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                         calisacagiSure = p2.head.proses.calisacagiSure;
                         calistigiSure = p2.head.proses.calistigiSure;
                         yenimiBasladi = calisacagiSure - calistigiSure;
@@ -154,6 +151,7 @@ public class main {
                             p2.sonraki();
                         }
                     }
+                    p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                     continue;
                 }
                 else
@@ -170,7 +168,6 @@ public class main {
                         p3.head.proses.calistigiSure++;
                         gercekZaman++;
 
-                        p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                         calisacagiSure = p3.head.proses.calisacagiSure;
                         calistigiSure = p3.head.proses.calistigiSure;
                         yenimiBasladi = calisacagiSure - calistigiSure;
@@ -189,7 +186,6 @@ public class main {
                         p3.head.proses.yurutuluyor(gercekZaman, yenimiBasladi);
                         p3.head.proses.calistigiSure++;
                         gercekZaman++;
-                        p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                         calisacagiSure = p3.head.proses.calisacagiSure;
                         calistigiSure = p3.head.proses.calistigiSure;
                         yenimiBasladi = calisacagiSure - calistigiSure;
@@ -206,19 +202,21 @@ public class main {
 
                         } //dugumu sona tasıyıp her şeyi bir sola kaydıracağız.
                     }
-
+                    p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                     continue;
                 }
                 else
                     gercekZamanIcerideArtmadi++;
             }
             if (gercekZamanIcerideArtmadi==4){
+                p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                 System.out.println(gercekZaman + "  Süresinde proses yoktu.");
                 gercekZaman++;
-                p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
             }
             if(p0.IsEmpty() && p1.IsEmpty() && p2.IsEmpty() && p3.IsEmpty())
                 break;
+
+
         }
 
 
