@@ -59,8 +59,9 @@ public class Dosya {
 
     public String NewBColor(int number){
         int rd =rand.nextInt(8);
-        if(rd == number){
-            while(rd == number){
+        int nnumber = RenkCode(number);
+        if(rd == nnumber){
+            while(rd == nnumber){
                 rd =rand.nextInt(8);
             }
         }
