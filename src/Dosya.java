@@ -25,7 +25,7 @@ public class Dosya {
                 System.out.print("  Öncelik ; "+ saniye[1]);
                 System.out.println("  Süresi ; "+ saniye[2]);
                 */RenkCode(number);
-                p = new Process(id,Integer.parseInt(saniye[0]),Integer.parseInt(saniye[1]),Integer.parseInt(saniye[2]),"\u001B[35m");
+                p = new Process(id,Integer.parseInt(saniye[0]),Integer.parseInt(saniye[1]),Integer.parseInt(saniye[2]),NewColor(id));
                 node=new Node(p);
                 list.addLast(node);
                 id++;
@@ -48,16 +48,11 @@ public class Dosya {
             p0.pop();
         }
     }*/
-    public String NewColor(){
-        return "";
+    public String NewColor(int number){
+        return "\u001B[3" +RenkCode(number) +"m";
     }
     public int RenkCode(int number){
-        if(number == 10){
-            number =0;
-        }
-        else{
-            number++;
-        }
-        return number;
+        int newNumb = number %8;
+        return newNumb;
     }
 }
