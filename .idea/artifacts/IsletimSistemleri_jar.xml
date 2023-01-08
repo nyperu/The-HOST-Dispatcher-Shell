@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="IsletimSistemleri:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/IsletimSistemleri_jar</output-path>
+    <root id="archive" name="IsletimSistemleri.jar">
+      <element id="module-output" name="IsletimSistemleri" />
+    </root>
+  </artifact>
+</component>

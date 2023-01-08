@@ -19,10 +19,10 @@ public class main {
         //onceliklerine göre listelere atılıyor...
         for (int i=0;i<tumListe.size;i++){
             oncelik = tumListe.head.proses.oncelik;
-           if(oncelik==0){
-               node= new Node(tumListe.head.proses);
-               p0.addLast(node);
-           }
+            if(oncelik==0){
+                node= new Node(tumListe.head.proses);
+                p0.addLast(node);
+            }
             if(oncelik==1){
                 node= new Node(tumListe.head.proses);
                 p1.addLast(node);
@@ -105,7 +105,7 @@ public class main {
                         }
                     }
                     p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
-                     continue;
+                    continue;
                 }
                 else
                     gercekZamanIcerideArtmadi++;
