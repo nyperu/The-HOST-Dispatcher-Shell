@@ -15,7 +15,7 @@ public class main {
 
 
         int oncelik;
-        tumListe=dosya.Oku();
+        tumListe=dosya.Oku(args[0]);
         //onceliklerine göre listelere atılıyor...
         for (int i=0;i<tumListe.size;i++){
             oncelik = tumListe.head.proses.oncelik;
@@ -209,6 +209,7 @@ public class main {
                     gercekZamanIcerideArtmadi++;
             }
             if (gercekZamanIcerideArtmadi==4){
+                p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
                 System.out.println(gercekZaman + "  Süresinde proses yoktu.");
                 gercekZaman++;
             }

@@ -8,12 +8,11 @@ public class Dosya {
     DoublyLinkedList list = new DoublyLinkedList();
 
     Random rand = new Random();
-    public DoublyLinkedList Oku(){
-        String color="\u001B[3";
+    public DoublyLinkedList Oku(String txt){
         int number = 0;
         try {
 
-            java.io.File myObj = new java.io.File("giris.txt");
+            java.io.File myObj = new java.io.File(txt);
             Scanner myReader = new Scanner(myObj);
             int id=0;
             while (myReader.hasNextLine()) {
