@@ -47,16 +47,16 @@ public class main {
         int gercekZamanIcerideArtmadi=0;
         while(true){
             gercekZamanIcerideArtmadi=0;
-            if (p0.head!=null) {
-                if (p0.head.proses.varisZamani <= gercekZaman) {
+            if (p0.head!=null) {// liste boş mu kontrolü yapılıyor.
+                if (p0.head.proses.varisZamani <= gercekZaman) { //Listenin başındaki eleman gerçek zamandan küçükse içeri girecek.
                     calisacagiSure = p0.head.proses.calisacagiSure;
                     calistigiSure = p0.head.proses.calistigiSure;
                     yenimiBasladi = calisacagiSure - calistigiSure;
-                    if (yenimiBasladi == calisacagiSure) {
+                    if (yenimiBasladi == calisacagiSure) {//Prosesin yeni başladığı kontrol ediliyor.
                         p0.head.proses.yeniBasladi(gercekZaman, yenimiBasladi);
                         p0.head.proses.calistigiSure++;
                         gercekZaman++;
-                    } else if (yenimiBasladi < calisacagiSure && yenimiBasladi > 0) {
+                    } else if (yenimiBasladi < calisacagiSure && yenimiBasladi > 0) { //proses bitmediyse yürütülüyor denecek.
                         p0.head.proses.yurutuluyor(gercekZaman, yenimiBasladi);
                         p0.head.proses.calistigiSure++;
                         gercekZaman++;
@@ -68,11 +68,15 @@ public class main {
                         p0.head.proses.bitti(gercekZaman, yenimiBasladi);
                         p0.sonraki();
                     }
-                    p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman);
-                    continue;
+                    p0.olumDegeriArttir(p0,p1,p2,p3,gercekZaman); //işlemler tamamlanınca 1 saniye ilerlemiş olacak dolayısıyla
+                    //20 saniyelik proses ömürleri 1 azalıyor.
+                    continue; //bir başka proses listesine gitmeden saniye bir ileri gidip döngü bir sonrası için devam ediyor.
+                    //böylece  uygulama, gerçek zamanlı bir proses listesine benzemiş oluyr.
                 }
                 else
-                    gercekZamanIcerideArtmadi++;
+                    gercekZamanIcerideArtmadi++; //eğer hiçbir prosess yoksa bu değeri 1 arttırıyoruz.
+                //bu kodların en altında eğer hiçbir kuyruktan gerçek zaman artmazsa
+                //EKRANA : bu saniyede proses yoktu yazdırıp gerçek saniyeyi bir arttırıyoruz.
             }
 
             if (p1.head!=null) {
@@ -158,7 +162,12 @@ public class main {
                     gercekZamanIcerideArtmadi++;
 
             }
-            if (p3.head!=null) {
+            if (p3.head!=null) { //burada RR algoritması çalıştırılacaktır.
+                //Başlayan ve yürütülen proses 1 saniye hak tanınıp en arkaya atılacaktır.
+                //Arkaya taşımaktan kasıt: p3 listesinde , soldan sağa giderken
+                // ilk şuanki zamandan büyük , gelme zamanı olanın
+                //soluna eklenecektir.
+                //eğer böyle yapılmazsa, gerçek zamanda kuyruğa gelmemesi gereken proseslerin de arkasına atılmış olacaktır.
                 if (p3.head.proses.varisZamani <= gercekZaman) {
                     calisacagiSure = p3.head.proses.calisacagiSure;
                     calistigiSure = p3.head.proses.calistigiSure;
@@ -213,6 +222,7 @@ public class main {
                 System.out.println(gercekZaman + "  Süresinde proses yoktu.");
                 gercekZaman++;
             }
+            //giris.txt'deki bütün elemanlar verilen koşullara göre işlendiğinde listeler boşalacak ve döngü kırılıp, program sonlanacaktır.
             if(p0.IsEmpty() && p1.IsEmpty() && p2.IsEmpty() && p3.IsEmpty())
                 break;
 

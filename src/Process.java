@@ -5,9 +5,10 @@ public class Process {
     public int calisacagiSure;
     public int olumAdimi;
     public int calistigiSure;
-    public String Color;
+    public String Color; // 8 adet rastgele renk üretilmektedir.
 
-    public String BackGround;
+    public String BackGround; // 8 adet rast gele arka plan rengi üretilmektedir.
+    //BU RENKLER ASLA ÇAKIŞMAMAKTADIR. 8*8'DEN 64 FARKLI PROSESS ID'Sİ İÇİN RENK KOMBİNASYONU YAPILMIŞTIR.
 
     public Process(int id, int varisZamani, int oncelik,int kalanZaman,String Color,String BackGround){
         this.id =0000+id;
@@ -16,7 +17,10 @@ public class Process {
         this.calisacagiSure = kalanZaman;
         this.Color = Color;
         this.BackGround = BackGround;
-        this.olumAdimi = varisZamani*-1;
+        this.olumAdimi = varisZamani*-1; //ölüm adımından kasıt 20 saniyelik bekleme süresidir.
+        //bu açlık süresi sanal olarak txt'den okunan verilerin her biri için artacağından dolayı
+        //her prosesin gerçek zamanda gelebilmesinin sağlamak adına bütün proseslerin geliş zamanlarının negatifini alıyoruz.
+        // ölüm adımı 0 olduğunda proses gerçekten de gerçek zamanda gelmiş olacaktır.
         this.calistigiSure=0;
     }
     public int getId(){
